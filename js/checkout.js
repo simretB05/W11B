@@ -20,7 +20,7 @@ if(selectedjson === undefined) {
     // adding a button when we have a value  in our coockies jar that will clear the cookies when we want to clear our selction clicked 
     get_main.insertAdjacentHTML( `beforeend`,
         ` <button class="empty-btn">Clear All</button>` );
-// looping through the 
+// looping through the productsArry object  and displaying the saved coockies items in the checkout html 
     for ( let i = 0; i < productsArray.length; i++ ) {
         product_container.insertAdjacentHTML( `beforeend`,
         `
@@ -44,6 +44,7 @@ function deleteItem( details ){
     
 
 }
+// get the delete button tag using querySelectors
 let delete_button = document.querySelector( `.delete` );
 delete_button.addEventListener(`click`, deleteItem)
 
@@ -52,15 +53,17 @@ function emptyCart( details ){
     Cookies.remove( `product_selected` );
     product_container[`style`][`display`] = `none`
     empty_btn[`style`][`display`]=`none`
-
-
     
-        product_container.insertAdjacentHTML(`afterbegin`, `<h3 style=" color: #e3333b;
-        align-self: strat; font-size: 1.6rem;">YOUR CART IS EMPITY</h3>`)
+   get_main.insertAdjacentHTML(`afterbegin`, `<h3 style="color: #e3333b;
+   align-self: strat; font-size: 1.6rem;">YOUR CART IS EMPITY</h3>`)
         
     
     
 }
+
+// get the delete button tag using querySelectors and
+//  adding event lsitener and making js call the emptycart function to remove our selection and display our empty cart message
+
 let empty_btn = document.querySelector( `.empty-btn` );
 empty_btn.addEventListener(`click`, emptyCart)
 
