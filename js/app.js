@@ -1,23 +1,28 @@
+//created avariable that stores the value from a cookies
 let selected_json = Cookies.get( `product_selected` );
-console.log(selected_json)
-let ketoIceCream_products= [{
-    name: `mint ice cream`,
-    price: 2,
-    image_url: `/images/ice-cream1.jpg`,
-    description:`Mint ice creamis frequently used to flavor ice cream, especially in North America, Asia, and Europe.`
-},
-{
-    name: `vanilla ice cream`,
-    price: 3,
-    image_url:`/images/ice-cream2.jpg`,
-    description:`Vanilla is frequently used to flavor ice cream, especially in North America, Asia, and Europe.`
-},
-{
-    name: ` Chocolate Ice Cream`,
-    price: 1,
-    image_url: `/images/ice-cream3.jpg`,
-    description:`Chocolate frequently used to flavor ice cream, especially in North America, Asia, and Europe.`
- },
+// created an array that stores data about ice-creams 
+let ketoIceCream_products = [
+    {
+        id:1,
+        name: `mint ice cream`,
+        price: 2,
+        image_url: `/images/ice-cream1.jpg`,
+        description:`Mint ice creamis frequently used to flavor ice cream, especially in North America, Asia, and Europe.`
+   },
+    {
+        id:2,
+        name: `vanilla ice cream`,
+        price: 3,
+        image_url:`/images/ice-cream2.jpg`,
+        description:`Vanilla is frequently used to flavor ice cream, especially in North America, Asia, and Europe.`
+    },
+    {
+        id:3,
+        name: ` Chocolate Ice Cream`,
+        price: 1,
+        image_url: `/images/ice-cream3.jpg`,
+        description:`Chocolate frequently used to flavor ice cream, especially in North America, Asia, and Europe.`
+    },
 ]
 let get_main = document.querySelector(`#main-section`)
 
