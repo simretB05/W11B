@@ -1,5 +1,5 @@
-
-
+let selected_json = Cookies.get( `product_selected` );
+console.log(selected_json)
 let ketoIceCream_products= [{
     name: `mint ice cream`,
     price: 2,
@@ -41,8 +41,10 @@ for ( let i = 0; i<ketoIceCream_products.length; i++ ){
             </div>`
     )
 }
-let newArry = []
 
+
+let newArry = []
+ 
 function addToCart(details) {
     let selected = {
         name: details[`target`].getAttribute(`product_name`),
@@ -50,8 +52,13 @@ function addToCart(details) {
         description: details[`target`].getAttribute(`product_description`),
         price: details[`target`].getAttribute(`product_price`),
     }
+    if ( !( selected_json === undefined ) ){
+    
+    newArry = JSON.parse(selected_json);
+        
+    }
    newArry.push(selected)
-   let selected_json = JSON.stringify( newArry );
+   selected_json = JSON.stringify(newArry);
     Cookies.set( `product_selected`, selected_json);
 }
 
