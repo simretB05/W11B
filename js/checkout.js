@@ -28,8 +28,8 @@ if(selectedjson === undefined) {
                 <h3>${ productsArray[i][`name`] }</h3>
                 <img style="width:200px; height:200px;"src="${ productsArray[i][`image_url`] }" />
                 <p style="width:60%;">${ productsArray[i][`description`] }</p>
-                <h6>${ productsArray[i][`price`] }$</h6>
-                <button class="delete" >delete</button>
+                <h6>${ productsArray[i][`price`] }$CAD</h6>
+                <button class="delete"product_name="${productsArray[i][`name`]}" >delete</button>
            </div>
      
     `
@@ -38,10 +38,14 @@ if(selectedjson === undefined) {
 }
 
 function deleteItem( details ){
-    Cookies.remove( `selection` );
-    
-  
-    
+    for ( let i = 0; i < productsArray.length; i++ ){
+            if(productsArray[i][`name`] === details[`target`].getAttribute( `product_name`)){
+                Cookies.remove( `selection` );
+                 
+            }
+
+    }
+        
 
 }
 // get the delete button tag using querySelectors
@@ -56,9 +60,6 @@ function emptyCart( details ){
     
    get_main.insertAdjacentHTML(`afterbegin`, `<h3 style="color: #e3333b;
    align-self: strat; font-size: 1.6rem;">YOUR CART IS EMPITY</h3>`)
-        
-    
-    
 }
 
 // get the delete button tag using querySelectors and

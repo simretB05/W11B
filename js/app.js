@@ -36,9 +36,9 @@ for ( let i = 0; i<ketoIceCream_products.length; i++ ){
                 </div>
                 <h2 class="title">${ketoIceCream_products[i][`name`]}</h2>
                 <p class="text"> ${ketoIceCream_products[i][`description`]}</p>
-                <p class="text"> price $CAD${ketoIceCream_products[i][`price`]}</p>
+                <p class="text"> ${ketoIceCream_products[i][`price`]} $CAD</p>
                 
-                <button class="btn" product_name="${ketoIceCream_products[i][`name`]}" 
+                <button class="btn"product_name="${ketoIceCream_products[i][`name`]}" 
                     product_price="${ketoIceCream_products[i][`price`]}" 
                     product_description="${ketoIceCream_products[i][`description`]}"
                     product_image_url="${ketoIceCream_products[i][`image_url`]}">
