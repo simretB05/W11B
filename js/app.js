@@ -24,8 +24,9 @@ let ketoIceCream_products = [
         description:`Chocolate frequently used to flavor ice cream, especially in North America, Asia, and Europe.`
     },
 ]
+ //selected the the section where the items are displyed with queryselector
 let get_main = document.querySelector(`#main-section`)
-
+ //looped through the our object arry and diplayed the products in the html
 for ( let i = 0; i<ketoIceCream_products.length; i++ ){
     get_main.insertAdjacentHTML( `beforeend`, 
         `<div class="main_card">
@@ -47,26 +48,36 @@ for ( let i = 0; i<ketoIceCream_products.length; i++ ){
     )
 }
 
-
+// created a new empty Array  this will be used to add
 let newArry = []
- 
-function addToCart(details) {
+ //created a function that takes details as an argument
+function addToCart( details ){
+// created an object and stored the values of all the data i get from a
+//  button click with attributes in an object key value form
     let selected = {
         name: details[`target`].getAttribute(`product_name`),
         image_url: details[`target`].getAttribute(`product_image_url`),
         description: details[`target`].getAttribute(`product_description`),
         price: details[`target`].getAttribute(`product_price`),
     }
-    if ( !( selected_json === undefined ) ){
     
+    if ( !( selected_json === undefined ) ){
+  
+    //cheking if the selected json value is stored in our cookies when we use the get method on top
+    //if it is the newArry Arry is set to the value of 
+    // the cookie we get from get method , but this time its parsed to change it from a string to an object.
     newArry = JSON.parse(selected_json);
         
     }
-   newArry.push(selected)
-   selected_json = JSON.stringify(newArry);
+   // pusing the value of the  selected object to the newArry when whenver we click on the button
+    newArry.push( selected )
+    //reassign the value of the selected_json with the value of the newArry and store it as s string  using JSON
+    selected_json = JSON.stringify( newArry );
+    // /seting cookes with the value of the selected__json  this will always make sure the arry has value that will be displayed  even when the page is refreshed
     Cookies.set( `product_selected`, selected_json);
 }
 
+// added an event listener that will listen to a click from ever all targeted buttons  and gets javascript to call the addTocart function
 let product_buttons = document.querySelectorAll(`.main_card`);
 for(let i=0; i<product_buttons.length; i++) {
     product_buttons[i].addEventListener(`click`, addToCart);
