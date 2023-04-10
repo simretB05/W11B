@@ -18,7 +18,7 @@ let ketoIceCream_products = [
     },
     {
         id:3,
-        name: ` Chocolate Ice Cream`,
+        name: `Chocolate Ice Cream`,
         price: 1,
         image_url: `/images/ice-cream3.jpg`,
         description:`Chocolate frequently used to flavor ice cream, especially in North America, Asia, and Europe.`
@@ -27,9 +27,10 @@ let ketoIceCream_products = [
  //selected the the section where the items are displyed with queryselector
 let get_main = document.querySelector(`#main-section`)
  //looped through the our object arry and diplayed the products in the html
-for ( let i = 0; i<ketoIceCream_products.length; i++ ){
+for ( let i = 0; i < ketoIceCream_products.length; i++ )
+{
     get_main.insertAdjacentHTML( `beforeend`, 
-        `<div class="main_card">
+        `<div class="main_card"  >
                 <div class="image_card">
                     <img src="${ ketoIceCream_products[i][`image_url`]}"
                     alt="image of ice cream"/>
@@ -38,7 +39,7 @@ for ( let i = 0; i<ketoIceCream_products.length; i++ ){
                 <p class="text"> ${ketoIceCream_products[i][`description`]}</p>
                 <p class="text"> ${ketoIceCream_products[i][`price`]} $CAD</p>
                 
-                <button class="btn"product_name="${ketoIceCream_products[i][`name`]}" 
+                <button product_id="${ketoIceCream_products[i][`id`]}" class="btn" product_name="${ketoIceCream_products[i][`name`]}" 
                     product_price="${ketoIceCream_products[i][`price`]}" 
                     product_description="${ketoIceCream_products[i][`description`]}"
                     product_image_url="${ketoIceCream_products[i][`image_url`]}">
@@ -53,12 +54,13 @@ let newArry = []
  //created a function that takes details as an argument
 function addToCart( details ){
 // created an object and stored the values of all the data i get from a
-//  button click with attributes in an object key value form
+//  button click with attributes and stored  in an object key value form
     let selected = {
         name: details[`target`].getAttribute(`product_name`),
         image_url: details[`target`].getAttribute(`product_image_url`),
         description: details[`target`].getAttribute(`product_description`),
-        price: details[`target`].getAttribute(`product_price`),
+        price: details[`target`].getAttribute( `product_price` ),
+        id:details[`target`].getAttribute(`product_id`)
     }
     
     if ( !( selected_json === undefined ) ){
@@ -78,7 +80,7 @@ function addToCart( details ){
 }
 
 // added an event listener that will listen to a click from ever all targeted buttons  and gets javascript to call the addTocart function
-let product_buttons = document.querySelectorAll(`.main_card`);
+let product_buttons = document.querySelectorAll(`.btn`);
 for(let i=0; i<product_buttons.length; i++) {
     product_buttons[i].addEventListener(`click`, addToCart);
 }
