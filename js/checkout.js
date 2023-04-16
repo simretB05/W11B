@@ -89,7 +89,7 @@ function deleteItem( details ){
 }
 
 for ( let x = 0; x <delete_button.length; x++ ){
-    delete_button[x].addEventListener(`click`, deleteItem)
+ delete_button[x].addEventListener(`click`, deleteItem)
 
 }
 
